@@ -1,0 +1,15 @@
+.main-navbar {
+    position: fixed;
+}
+
+.modal-open .wrapper {
+    opacity: .6;
+}
+
+.modal-header .close {
+    outline: none;
+    position: relative;
+    color: black;
+    border: none;
+    top: 0;
+}
