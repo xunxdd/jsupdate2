@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>Job stalker net - The ultimate place to find your ultimate job </title>
+    <title>My AngularJS App</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
+    <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+    <link rel="stylesheet" href="app.css">
+    <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+
+    <!--favicon-->
+    <link rel="apple-touch-icon" href="assets/theme/images/apple-touch-icon.png">
+    <link rel="shortcut icon" href="assets/theme/images/favicon.ico" type="image/x-icon">
+    <link href="assets/plugins/bootstrap-3.3.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="assets/plugins/font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="assets/plugins/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="assets/theme/css/theme.css" rel="stylesheet">
+    <link href="assets/theme/css/theme-custom.css" rel="stylesheet">
+
+</head>
+<body>
+<div class="wrapper">
+
+    <header class="main-header">
+
+        <nav class="navbar navbar-default main-navbar hidden-sm hidden-xs">
+            <div class="container">
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                    <ul class="nav navbar-nav">
+                        <li class=""><a href="job_list.html"><strong>Find a Job</strong></a></li>
+                        <li class=""><a href="resume_list.html"><strong>Find Resumes</strong></a></li>
+                        <li class=""><a href="job_post_1.html"><strong>Post a Job</strong></a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="link-btn"><a href="login.html"><span class="btn btn-theme btn-pill btn-xs btn-line">Login</span></a>
+                        </li>
+                        <li class="link-btn"><a href="register.html"><span
+                                class="btn btn-theme  btn-pill btn-xs btn-line">Register</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <nav class="mobile-nav hidden-md hidden-lg">
+                <a href="#" class="btn-nav-toogle first">
+                    <span class="bars"></span>
+                    Menu
+                </a>
+                <div class="mobile-nav-block">
+                    <h4>Navigation</h4>
+                    <a href="#" class="btn-nav-toogle">
+                        <span class="barsclose"></span>
+                        Close
+                    </a>
+
+                    <ul class="nav navbar-nav">
+                        <li class=""><a href="job_list.html"><strong>Find a Job</strong></a></li>
+                        <li class=""><a href="resume_list.html"><strong>Find Resumes</strong></a></li>
+                        <li class=""><a href="job_post_1.html"><strong>Post a Job</strong></a></li>
+                        <li><a href="login.html"><strong>Login</strong></a></li>
+                        <li><a href="register.html"><strong>Register</strong></a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <div class="hero-header">
+            <div class="inner-hero-header">
+                <div class="container">
+                    <div class="text-center logo"><a href="index.html"><img src="assets/theme/images/logo.png"
+                                                                            alt=""></a></div>
+                    <div class="relative">
+                        <form class="form-search-home" method="post" action="job_list.html">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>What</label>
+                                        <input class="form-control  input-lg"
+                                               placeholder="job title, keywords or company name">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Where</label>
+                                        <input class="form-control input-lg" id="job-search-basic-place"
+                                               placeholder="city, province, or region">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-t-primary btn-lg btn-theme btn-pill btn-block">Find a Jobs
+                                </button>
+                            </div>
+                            <div class="text-center">
+                                <a href="#modal-advanced" data-toggle="modal">Advanced Job Search</a>
+                            </div>
+                        </form> <!-- end form search -->
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="modal fade" id="modal-advanced">
+                <div class="modal-dialog ">
+                    <div class="modal-content">
+                        <form>
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                        aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Advanced Job Search</h4>
+                            </div>
+                            <div class="modal-body">
+                                <h5>Find Jobs</h5>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>With all of these words</label>
+                                            <input type="text" class="form-control " name="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>With the exact phrase</label>
+                                            <input type="text" class="form-control " name="text">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Show jobs of type</label>
+                                    <select class="form-control">
+                                        <option value="all">All job types</option>
+                                        <option value="fulltime">Full-time</option>
+                                        <option value="parttime">Part-time</option>
+                                        <option value="contract">Contract</option>
+                                        <option value="internship">Internship</option>
+                                        <option value="temporary">Temporary</option>
+                                    </select>
+                                </div>
+                                <div class="white-space-10"></div>
+                                <h5>Where and When</h5>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Radius </label>
+                                            <select id="radius" class="form-control">
+                                                <option value="0">only in</option>
+                                                <option value="5">within 5 kilometers</option>
+                                                <option value="10">within 10 kilometers</option>
+                                                <option value="15">within 15 kilometers</option>
+                                                <option selected="" value="25">within 25 kilometers</option>
+                                                <option value="50">within 50 kilometers</option>
+                                                <option value="100">within 100 kilometers</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Of </label>
+                                            <input type="text" class="form-control" maxlength="250"
+                                                   value="United States">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Age - Jobs published </label>
+                                            <select class="form-control">
+                                                <option value="any">anytime</option>
+                                                <option value="15">within 15 days</option>
+                                                <option value="7">within 7 days</option>
+                                                <option value="3">within 3 days</option>
+                                                <option value="1">since yesterday</option>
+                                                <option value="last">since my last visit</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Display</label>
+                                            <select class="form-control">
+                                                <option selected="" value="10">10</option>
+                                                <option value="20">20</option>
+                                                <option value="30">30</option>
+                                                <option value="50">50</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default btn-theme" data-dismiss="modal">Close
+                                </button>
+                                <button type="button" class="btn btn-success btn-theme"><a href="job_list.html">Find
+                                    Jobs</a></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div><!-- end modal forgot password -->
+
+
+        </div>
+    </header><!-- end main-header -->
+
+
+    <div ng-view></div>
+
+    <!-- main-footer -->
+    <footer class="main-footer">
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <ul class="list-inline link-footer text-center-xs">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6 ">
+                    <p class="text-center-xs hidden-lg hidden-md hidden-sm">Stay Connect</p>
+                    <div class="socials text-right text-center-xs">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer><!-- end main-footer -->
+
+</div><!-- end wrapper page -->
+
+
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="app.js"></script>
+<script src="view1/view1.js"></script>
+<script src="view2/view2.js"></script>
+<script src="components/version/version.js"></script>
+<script src="components/version/version-directive.js"></script>
+<script src="components/version/interpolate-filter.js"></script>
+<script src="assets/plugins/jquery.js"></script>
+<script src="assets/plugins/jquery.easing-1.3.pack.js"></script>
+<script src="assets/plugins/bootstrap-3.3.2/js/bootstrap.min.js"></script>
+<script src="assets/plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
+<!-- Theme JS -->
+<script src="assets/theme/js/theme.js"></script>
+<script src="js/googleplaceinit.js" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApLPJXQ__xv_VUnwpwUYjGdMCr6nnD_Zs&&libraries=places&callback=initAutocompleteSearchBasic" async defer></script>
+
+
+</body>
+</html>

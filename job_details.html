@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Job Stalker - Your ultimate job search destination </title>
+
+    <!--favicon-->
+    <link rel="apple-touch-icon" href="assets/theme/images/apple-touch-icon.png">
+    <link rel="shortcut icon" href="assets/theme/images/favicon.ico" type="image/x-icon">
+
+    <!-- bootstrap -->
+    <link href="assets/plugins/bootstrap-3.3.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="assets/plugins/font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- lightbox -->
+    <link href="assets/plugins/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+
+    <!-- Themes styles-->
+    <link href="assets/theme/css/theme.css" rel="stylesheet">  
+    <!-- Your custom css -->
+    <link href="assets/theme/css/theme-custom.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <!-- wrapper page -->
+    <div class="wrapper">
+      <!-- main-header -->
+      <header class="main-header">
+
+
+        <!-- main navbar -->
+        <nav class="navbar navbar-default main-navbar hidden-sm hidden-xs">
+          <div class="container">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="job_list.html"><strong>Find a Job</strong></a></li>
+                <li class=""><a href="resume_list.html"><strong>Find Resumes</strong></a></li>
+                <li  class=""><a href="job_post_1.html"><strong>Post a Job</strong></a></li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li class="link-btn"><a href="login.html"><span class="btn btn-theme btn-pill btn-xs btn-line">Login</span></a></li>
+                <li class="link-btn"><a href="register.html"><span class="btn btn-theme  btn-pill btn-xs btn-line">Register</span></a></li>
+              </ul>
+            </div>
+          </div>
+        </nav><!-- end main navbar -->
+
+        <!-- mobile navbar -->
+        <div class="container">
+          <nav class="mobile-nav hidden-md hidden-lg">
+            <a href="#" class="btn-nav-toogle first">
+              <span class="bars"></span>
+              Menu
+            </a>
+            <div class="mobile-nav-block">
+              <h4>Navigation</h4>
+              <a href="#" class="btn-nav-toogle">
+                <span class="barsclose"></span>
+                Close
+              </a>      
+
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="job_list.html"><strong>Find a Job</strong></a></li>
+                <li class=""><a href="resume_list.html"><strong>Find Resumes</strong></a></li>
+                <li  class=""><a href="job_post_1.html"><strong>Post a Job</strong></a></li>
+                <li><a href="login.html"><strong>Login</strong></a></li>
+                <li><a href="register.html"><strong>Register</strong></a></li>
+              </ul>
+            </div>
+          </nav>
+        </div><!-- mobile navbar -->
+
+
+        <!-- form search area-->
+        <div class="container">
+          <div class="row">
+
+            <div class="col-md-4">
+              <!-- logo -->
+              <div class="logo text-center-sm"> <a href="index.html"><img src="assets/theme/images/logo.png" alt=""></a></div>
+            </div>
+
+            <div class="col-md-8">
+              <!-- form search -->
+              <form class="form-search-list">
+                <div class="row">
+                  <div class="col-sm-5 col-xs-6 ">
+                    <div class="form-group">
+                      <label class="color-white">What</label>
+                      <input class="form-control" placeholder="job title, keywords or company name" >
+                    </div>
+                  </div>
+                  <div class="col-sm-5 col-xs-6 ">
+                    <div class="form-group">
+                      <label class="color-white">Where</label>
+                      <input class="form-control" placeholder="city, province, or region">
+                    </div>
+                  </div>
+                  <div class="col-sm-2 col-xs-12 ">
+                    <div class="form-group">
+                      <label class="hidden-xs">&nbsp;</label>
+                      <button class="btn btn-block btn-theme  btn-success">Search</button>
+                    </div>
+                  </div>
+                </div>
+                <p class="text-right"><a href="#modal-advanced" data-toggle="modal" class="link-white">Advanced Search</a></p>
+              </form>  <!-- form search -->
+            </div>
+
+
+          </div>
+
+
+          <!-- modal Advanced search -->
+          <div class="modal fade" id="modal-advanced" >
+            <div class="modal-dialog ">
+              <div class="modal-content">
+                <form>
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Advanced Job Search</h4>
+                  </div>
+                  <div class="modal-body">
+                    <h5>Find Jobs</h5>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>With all of these words</label>
+                          <input type="text" class="form-control " name="text" >
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>With the exact phrase</label>
+                          <input type="text" class="form-control " name="text" >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label>Show jobs of type</label>
+                      <select class="form-control">
+                        <option value="all">All job types</option>
+                        <option value="fulltime">Full-time</option>
+                        <option value="parttime">Part-time</option>
+                        <option value="contract">Contract</option>
+                        <option value="internship">Internship</option>
+                        <option value="temporary">Temporary</option>
+                      </select>
+                    </div>
+                    <div class="white-space-10"></div>
+                    <h5>Where and When</h5>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>Radius  </label>
+                          <select id="radius" class="form-control">
+                            <option value="0">only in</option>
+                            <option value="5">within 5 kilometers </option>
+                            <option value="10">within 10 kilometers </option>
+                            <option value="15">within 15 kilometers </option>
+                            <option selected="" value="25">within 25 kilometers </option>
+                            <option value="50">within 50 kilometers </option>
+                            <option value="100">within 100 kilometers </option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>Of  </label>
+                          <input type="text" class="form-control" maxlength="250" value="United States">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>Age - Jobs published  </label>
+                          <select class="form-control">
+                            <option value="any">anytime</option>
+                            <option value="15">within 15 days</option>
+                            <option value="7">within 7 days</option>
+                            <option value="3">within 3 days</option>
+                            <option value="1">since yesterday</option>
+                            <option value="last">since my last visit</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>Display</label>
+                          <select class="form-control">
+                            <option selected="" value="10">10</option>
+                            <option value="20">20</option>
+                            <option value="30">30</option>
+                            <option value="50">50</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default btn-theme" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success btn-theme"><a href="job_list.html">Find Jobs</a></button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div><!-- end modal forgot password -->
+
+
+
+
+        </div><!-- end form search area-->
+
+      </header><!-- end main-header -->
+
+
+      <!-- body-content -->
+      <div class="body-content clearfix" >
+
+        <!-- link top -->
+        <div class="bg-color2 block-section-xs line-bottom">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-6 hidden-xs">
+                <div>Job details :</div>
+              </div>
+              <div class="col-sm-6">
+                <div class="text-right"><a href="#">&laquo; Go back to job listings</a></div>
+              </div>
+            </div>
+          </div>
+        </div><!-- end link top -->
+
+        <div class="bg-color2">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-9">
+
+                <!-- box item details -->
+                <div class="block-section box-item-details">
+                  <div class="row">
+                    <div class="col-md-8" style="font-size: 16pt">
+                      <a href="#">The greatest place</a>
+                    </div>
+                    <div class="col-md-4">
+                      <p class="text-right"><a href="#">Go to our website &raquo;</a></p>
+                    </div>
+                  </div>
+
+                  <h2 class="title"><a href="#">Full Stack Web Developer, Internal Tools</a></h2>
+                  <div class="job-meta">
+                    <ul class="list-inline">
+                      <li><i class="fa fa-briefcase"></i> Contract Full-Time</li>
+                      <li><i class="fa fa-map-marker"></i> Chicago, IL</li>
+                      <li><i class="fa fa-money"></i> $50k - $140k</li>
+                    </ul>
+                  </div>
+                  <p>Location: Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah </p>
+                  <p>Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah </p>
+                  <p>Jobs Jobs Jobs Jobs Jobs Jobs Jobs Jobs Jobs Jobs Jobs Jobs Jobs Jobs Jobs Jobs Jobs Jobs Jobs Jobs</p>
+
+                  <h4>What you'll do:</h4>
+                  <ul>
+                    <li> Jobs Jobs Jobs Jobs Jobs Jobs Jobs Jobs</li>
+                    <li> Jobs Jobs Jobs Jobs Jobs Jobs Jobs Jobs Jobs </li>
+                    <li> Jobs Jobs Jobs Jobs Jobs Jobs Jobs Jobs Jobs Jobs</li>
+                  </ul>
+                  <h4>What we're looking for:</h4>
+                  <ul>
+                    <li> Jobs Jobs Jobs Jobs</li>
+                    <li>OOP concepts</li>
+                    <li>Experience with at least one OOP language, such as:
+                      <ul>
+                        <li>PHP</li>
+                        <li>Java</li>
+                        <li>C#</li>
+                        <li>Ruby</li>
+                        <li>etc.</li>
+                      </ul>
+                    </li>
+                    <li>A love of clean, understandable code and interface</li>
+                    <li>You can SELECT, INSERT, UPDATE and DELETE in your SQL database all day</li>
+                    <li>Experience working on a team</li>
+                    <li>Smarts, humility, and the desire to teach and learn</li>
+                  </ul>
+
+                  <p> Jobs Jobs Jobs Jobs Jobs Jobs Jobs Jobs Jobs Jobs Jobs Jobs Jobs Jobs Jobs Jobs Jobs Jobs Jobs Jobs</p>
+                  <p>We offer a competitive salary and benefits.</p>
+                </div><!-- end box item details -->
+
+              </div>
+              <div class="col-md-3">
+
+                <!-- box affix right -->
+                <div class="block-section " id="affix-box">
+                  <div class="text-right">
+                  </div>
+                </div><!-- box affix right -->
+
+              </div>
+            </div>
+          </div>
+        </div>
+  </div><!--end body-content -->
+
+
+      <!-- main-footer -->
+      <footer class="main-footer">
+
+
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6">
+              <ul class="list-inline link-footer text-center-xs">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+              </ul>
+            </div>
+            <div class="col-sm-6 ">
+              <p class="text-center-xs hidden-lg hidden-md hidden-sm">Stay Connect</p>
+              <div class="socials text-right text-center-xs">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer><!-- end main-footer -->
+
+    </div><!-- end wrapper page -->
+
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="assets/plugins/jquery.js"></script>
+    <script src="assets/plugins/jquery.easing-1.3.pack.js"></script>
+    <!-- jQuery Bootstrap -->
+    <script src="assets/plugins/bootstrap-3.3.2/js/bootstrap.min.js"></script>
+    <!-- Lightbox -->
+    <script src="assets/plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <!-- Theme JS -->
+    <script src="assets/theme/js/theme.js"></script>
+
+  </body>
+</html>
