@@ -10,7 +10,6 @@
 <head>
     <meta charset="utf-8">
     <title>Job stalker net - The ultimate place to find your ultimate job </title>
-    <title>My AngularJS App</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
@@ -42,7 +41,7 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
                     <ul class="nav navbar-nav">
-                        <li class=""><a href="job_list.html"><strong>Find a Job</strong></a></li>
+                        <li class=""><a ui-sref="app.jobList"><strong>Find a Job</strong></a></li>
                         <li class=""><a href="resume_list.html"><strong>Find Resumes</strong></a></li>
                         <li class=""><a href="job_post_1.html"><strong>Post a Job</strong></a></li>
                     </ul>
@@ -118,18 +117,25 @@
 <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
 <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="bower_components/lodash/lodash.js"></script>
+
 <script src="app.js"></script>
 <script src="routes.js"></script>
 
+<script src="constants/ApiPoint.js"></script>
+<script src="services/services.module.js"></script>
+<script src="services/search.srv.js"></script>
+
 <script src="components/search/search.module.js"></script>
-<script src="components/search/search.drv.js"></script>
 <script src="components/search/googlePlaceSearch.drv.js"></script>
 <script src="components/search/advanceSearch.drv.js"></script>
 
-<script src="assets/plugins/jquery.js"></script>
-<script src="assets/plugins/jquery.easing-1.3.pack.js"></script>
-<script src="assets/plugins/bootstrap-3.3.2/js/bootstrap.min.js"></script>
-<script src="assets/plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
+<script src="main/main.module.js"></script>
+<script src="main/main.js"></script>
+<script src="main/jobList.js"></script>
+<script src="main/search.js"></script>
+<script src="main/searchTop.js"></script>
+
 <!-- Theme JS -->
 <script src="assets/theme/js/theme.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApLPJXQ__xv_VUnwpwUYjGdMCr6nnD_Zs&&libraries=places"

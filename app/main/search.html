@@ -5,7 +5,33 @@
                 <img src="assets/theme/images/logo.png" alt="">
             </a></div>
 
-            <job-search></job-search>
+            <div class="relative">
+                <div class="form-search-home">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>What</label>
+                                <input class="form-control  input-lg"
+                                       placeholder="job title, keywords or company name">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Where</label>
+
+                                <google-place-search  cls="input-lg" ng-model="vm.fullAddress" place="vm.place"></google-place-search>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-t-primary btn-lg btn-theme btn-pill btn-block" ng-click="vm.search()">Find a Jobs
+                        </button>
+                    </div>
+                    <div class="text-center">
+                        <advance-search></advance-search>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

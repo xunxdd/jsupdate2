@@ -1,0 +1,44 @@
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-4">
+            <!-- logo -->
+            <div class="logo text-center-sm"><a href="index.html"><img src="assets/theme/images/logo.png" alt=""></a>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <div class="form-search-list">
+
+                <div class="row">
+                    <div class="col-sm-5 col-xs-6 ">
+                        <div class="form-group margin-top-20">
+                            <label class="color-white">What</label>
+                            <input class="form-control" placeholder="job title, keywords or company name">
+                        </div>
+                    </div>
+                    <div class="col-sm-5 col-xs-6 ">
+                        <div class="form-group margin-top-20">
+                            <label class="color-white">Where</label>
+                            <google-place-search ng-model="vm.fullAddress" place="vm.place"></google-place-search>
+                        </div>
+                    </div>
+                    <div class="col-sm-2 col-xs-12 ">
+                        <div class="form-group margin-top-20">
+                            <label class="hidden-xs">&nbsp;</label>
+                            <button class="btn btn-block btn-theme btn-success" ng-click="vm.search()">Search</button>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="text-right">
+                    <advance-search></advance-search>
+                </p>
+            </div>
+        </div>
+
+
+    </div>
+
+
+</div>

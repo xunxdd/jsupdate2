@@ -20,14 +20,36 @@
         'url': '/main',
         'views': {
           'header@': {
+            controller: 'appSearch',
+            bindToController: true,
+            controllerAs: 'vm',
             'templateUrl': 'main/search.html'
           },
           '@': {
             'templateUrl': 'main/main.html',
-            'controllerAs': 'vm'
+            controller: 'appMain',
+            bindToController: true,
+            controllerAs: 'vm'
           }
         }
+      })
+      .state('app.jobList', {
 
+        'url': '/joblist',
+        'views': {
+          'header@': {
+            controller: 'appTopSearch',
+            bindToController: true,
+            controllerAs: 'vm',
+            'templateUrl': 'main/searchTop.html'
+          },
+          '@': {
+            'templateUrl': 'main/jobList.html',
+            'controllerAs': 'vm',
+            controller: 'appJobList',
+            bindToController: true
+          }
+        }
       });
 
     $urlRouterProvider.otherwise('app/main');
