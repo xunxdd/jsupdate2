@@ -8,6 +8,7 @@
     return {
       replace: true,
       scope: {
+        cls: '@'
       },
       templateUrl: 'components/search/advanceSearch.html',
       controller: advanceSearchCtrl,
