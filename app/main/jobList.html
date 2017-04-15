@@ -16,21 +16,21 @@
                             </div>
                             <div class="col-sm-6">
                                 <p class="text-right">
-                                    Jobs 1 to 10 of 578
+                                    Jobs {{vm.pagination.start}} to {{vm.pagination.end}} of {{vm.pagination.total}}
                                 </p>
                             </div>
                         </div><!-- end desc top -->
 
                         <!-- item list -->
                         <div class="box-list">
-                            <div class="item" ng-repeat="item in vm.getSearchData()">
+                            <div class="item" ng-repeat="item in vm.searchData">
                                 <div class="row">
                                     <div class="col-md-11">
-                                        <h3 class="no-margin-top"><a href="job_details.html" class="">{{item.jobTitle}}
+                                        <h3 class="no-margin-top"><a ui-sref="app.jobdetails({id: item.id})" class="">{{item.title}}
                                             <i class="fa fa-link color-white-mute font-1x"></i></a></h3>
-                                        <h5><span class="color-black">{{item.companyName}}</span> -
-                                            <span class="color-white-mute">{{item.location}} {{item.state}}</span></h5>
-                                        <p class="text-truncate ">{{item.description}}</p>
+                                        <h5><span class="color-black">{{item.company}}</span> -
+                                            <span class="color-white-mute">{{item.location}}</span></h5>
+                                        <p class="text-truncate" ng-if="item.desc">{{item.desc}}</p>
                                     </div>
                                 </div>
                             </div><!-- end item list -->
@@ -38,7 +38,7 @@
 
 
                         <!-- pagination -->
-                        <div class="row" ng-show="vm.pagination.total>0">
+                        <div class="row" ng-show="vm.pagination.total>vm.pagination.size">
                             <div class="col-xs-12">
                                 <ul uib-pagination
                                     total-items="vm.pagination.total"
@@ -69,58 +69,15 @@
 
                         <div class="result-filter">
 
+                            <job-list-filter groups="vm.companyGroups" group-name="Companies"                                               on-filter="vm.onFilter" clear-filter="vm.clearFilter"
+                                             on-filter="vm.onFilter()" clear-filter="vm.clearFilter()"
+                            ></job-list-filter>
 
-                            <h5 class="font-bold  margin-b-20"  ng-if="vm.jobTitleGroups.length">
-                                <a ng-click="vm.jobTitleGroupShow = !vm.jobTitleGroupShow">Title <i
-                                    class="fa ic-arrow-toogle fa-angle-right pull-right"></i></a></h5>
-                            <div class="collapse in" ng-if="vm.jobTitleGroupShow">
-                                <div class="list-area">
-                                    <ul class="list-unstyled ">
-                                        <li ng-repeat="item in vm.jobTitleGroups">
-                                            <a ng-click="vm.filterJobs(item)">{{item.key}}</a> ({{item.group.length}})
-                                        </li>
-                                        <li>
-                                            <a ng-click="vm.clearFilter()">More ... </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <h5 class="font-bold  margin-b-20"  ng-if="vm.companyGroups.length">
-                                <a ng-click="vm.companyGroupShow = !vm.companyGroupShow">Companies
-                                    <i class="fa ic-arrow-toogle fa-angle-right pull-right"></i>
-                                </a>
-                            </h5>
-                            <div class="collapse in" ng-if="vm.companyGroupShow">
-                                <div class="list-area">
-                                    <ul class="list-unstyled ">
-                                        <li ng-repeat="item in vm.companyGroups">
-                                            <a ng-click="vm.filterJobs(item)">{{item.key}}</a> ({{item.group.length}})
-                                        </li>
-                                        <li>
-                                            <a ng-click="vm.clearFilter()">More ... </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+                            <job-list-filter groups="vm.locationGroups" group-name="Locations"
+                                             on-filter="vm.onFilter" clear-filter="vm.clearFilter"
+                            ></job-list-filter>
 
-                            <h5 class="font-bold  margin-b-20"  ng-if="vm.stateGroups.length">
-                                <a ng-click="vm.stateGroupShow = !vm.stateGroupShow">Companies
-                                    <i class="fa ic-arrow-toogle fa-angle-right pull-right"></i>
-                                </a>
-                            </h5>
-                            <div class="collapse in" ng-if="vm.stateGroupShow">
-                                <div class="list-area">
-                                    <ul class="list-unstyled ">
-                                        <li ng-repeat="item in vm.stateGroups">
-                                            <a ng-click="vm.filterJobs(item)">{{item.key}}</a> ({{item.group.length}})
-                                        </li>
-                                        <li>
-                                            <a ng-click="vm.clearFilter()">More ... </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-
+                            <job-list-filter groups="vm.milesGroups" group-name="Miles"></job-list-filter>
 
                         </div>
                     </div>

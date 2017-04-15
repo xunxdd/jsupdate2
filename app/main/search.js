@@ -5,8 +5,8 @@
     .module('JobStalker.main')
     .controller('appSearch', AppSearchCtrl);
 
-  AppSearchCtrl.$inject = ['$state', '$stateParams', 'SearchSrv'];
-  function AppSearchCtrl($state, $stateParams, SearchSrv) {
+  AppSearchCtrl.$inject = ['$state', '$stateParams', '$rootScope', 'SearchSrv'];
+  function AppSearchCtrl($state, $stateParams, $rootScope, SearchSrv) {
 
     var ctrl = this;
     
@@ -18,8 +18,11 @@
     }
     
     function search() {
-      SearchSrv.setSearchData();
-      $state.go('app.jobList');
+      var place = ctrl.place;
+      SearchSrv.setSearchData(ctrl.title, place).then(function () {
+        $rootScope.$broadcast('jobsearchUpdated');
+        $state.go('app.jobList');
+      });
     }
   }
 

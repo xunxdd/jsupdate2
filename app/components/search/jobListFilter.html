@@ -1,0 +1,19 @@
+<div>
+    <h5 class="font-bold  margin-b-20"  ng-if="vm.groups.length">
+        <a ng-click="vm.showGroup = !vm.showGroup">{{vm.groupName}}
+            <i class="fa ic-arrow-toogle fa-angle-right pull-right"></i>
+        </a>
+    </h5>
+    <div class="collapse in" ng-if="vm.showGroup">
+        <div class="list-area">
+            <ul class="list-unstyled ">
+                <li ng-repeat="item in vm.groups track by $index" ng-if="$index<6">
+                    <a  ng-click="vm.onFilterJobs(item, vm.groupName)">{{item.key}}</a> ({{item.group.length}})
+                </li>
+                <li  ng-if="vm.groups.length>5">
+                    <a ng-click="vm.clearFilter(vm.groupName)">More ... </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

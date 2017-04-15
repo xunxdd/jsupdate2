@@ -17,9 +17,11 @@
     }
 
     function search() {
-      SearchSrv.setSearchData();
-      $state.go('app.jobList');
-      $rootScope.$broadcast('jobsearchUpdated');
+      var place = angular.copy(ctrl.place) ;
+      SearchSrv.setSearchData(ctrl.title, place).then(function () {
+        $rootScope.$broadcast('jobsearchUpdated');
+        $state.go('app.jobList');
+      });
     }
   }
 

@@ -4,8 +4,7 @@
   angular
     .module('JobStalker')
     .constant('ApiEndPoint', {
-      apiUrl: 'https://nodeapimy.herokuapp.com/api/',
-      url:'https://nodeapimy.herokuapp.com/'
+      apiUrl: 'http://jobstalker.net/jobstalker/jobstalker/api/'
     });
 
 })();

@@ -36,19 +36,19 @@
 
     <header class="main-header">
 
-        <nav class="navbar navbar-default navbar-fixed-top main-navbar hidden-sm hidden-xs">
+        <nav class="navbar navbar-default main-navbar hidden-sm hidden-xs">
             <div class="container">
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
                     <ul class="nav navbar-nav">
-                        <li class=""><a ui-sref="app.jobList"><strong>Find a Job</strong></a></li>
-                        <li class=""><a href="resume_list.html"><strong>Find Resumes</strong></a></li>
-                        <li class=""><a href="job_post_1.html"><strong>Post a Job</strong></a></li>
+                        <li class=""><a ui-sref="app.main"><strong>Find a Job</strong></a></li>
+                   <!--     <li class=""><a><strong>Find Resumes</strong></a></li>
+                        <li class=""><a><strong>Post a Job</strong></a></li>-->
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="link-btn"><a href="login.html"><span class="btn btn-theme btn-pill btn-xs btn-line">Login</span></a>
+                        <li class="link-btn"><a><span class="btn btn-theme btn-pill btn-xs btn-line">Login</span></a>
                         </li>
-                        <li class="link-btn"><a href="register.html"><span
+                        <li class="link-btn"><a><span
                                 class="btn btn-theme  btn-pill btn-xs btn-line">Register</span></a></li>
                     </ul>
                 </div>
@@ -69,11 +69,11 @@
                     </a>
 
                     <ul class="nav navbar-nav">
-                        <li class=""><a href="job_list.html"><strong>Find a Job</strong></a></li>
-                        <li class=""><a href="resume_list.html"><strong>Find Resumes</strong></a></li>
-                        <li class=""><a href="job_post_1.html"><strong>Post a Job</strong></a></li>
-                        <li><a href="login.html"><strong>Login</strong></a></li>
-                        <li><a href="register.html"><strong>Register</strong></a></li>
+                        <li><a ui-sref="app.main"><strong>Find a Job</strong></a></li>
+                        <!--<li class=""><a href="resume_list.html"><strong>Find Resumes</strong></a></li>
+                        <li class=""><a href="job_post_1.html"><strong>Post a Job</strong></a></li>-->
+                        <li><a><strong>Login</strong></a></li>
+                        <li><a><strong>Register</strong></a></li>
                     </ul>
                 </div>
             </nav>
@@ -118,7 +118,7 @@
 <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
 <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 <script src="bower_components/lodash/lodash.js"></script>
-
+<script src="bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
 <script src="app.js"></script>
 <script src="routes.js"></script>
 
@@ -129,16 +129,18 @@
 <script src="components/search/search.module.js"></script>
 <script src="components/search/googlePlaceSearch.drv.js"></script>
 <script src="components/search/advanceSearch.drv.js"></script>
+<script src="components/search/jobListFilter.drv.js"></script>
 
 <script src="main/main.module.js"></script>
 <script src="main/main.js"></script>
 <script src="main/jobList.js"></script>
+<script src="main/jobDetails.js"></script>
 <script src="main/search.js"></script>
 <script src="main/searchTop.js"></script>
 
 <!-- Theme JS -->
 <script src="assets/theme/js/theme.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApLPJXQ__xv_VUnwpwUYjGdMCr6nnD_Zs&&libraries=places"
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApLPJXQ__xv_VUnwpwUYjGdMCr6nnD_Zs&&libraries=places&language=en&v=3"
         async defer></script>
 
 

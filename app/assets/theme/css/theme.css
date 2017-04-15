@@ -1470,7 +1470,7 @@ a:focus {
   width: 235px;
   height: 110px;
   left: -233px;
-  bottom: -3px;
+  bottom: -2px;
 }
 .main-header .form-search-home:after {
   content: "";
@@ -1479,7 +1479,7 @@ a:focus {
   width: 235px;
   height: 110px;
   right: -233px;
-  bottom: -3px;
+  bottom: -2px;
 }
 .main-header .form-search-list {
   margin-top: 53px;
@@ -1881,7 +1881,7 @@ a:focus {
   position: absolute;
 }
 @media (max-width: 768px) {
-  
+
 }
 .resume-block:before {
   content: "";

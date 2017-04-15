@@ -13,11 +13,11 @@
         place: '=',
         cls: '@'
       },
-      template: '<input class="form-control {{cls}}" type="text">',
+      template: '<input class="form-control {{cls}}" type="text" placeholder="city, state or zipcode">',
       link: function(scope, element, attrs, model) {
         var options = {
-          types: [],
-          componentRestrictions: {}
+          types: ['(cities)'],
+          componentRestrictions: {country: 'us'}
         };
 
         var autocomplete = new google.maps.places.Autocomplete(element[0], options);

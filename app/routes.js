@@ -50,7 +50,24 @@
             bindToController: true
           }
         }
-      });
+      })
+      .state('app.jobdetails', {
+      'url': '/jobdetails/:id',
+      'views': {
+        'header@': {
+          controller: 'appTopSearch',
+          bindToController: true,
+          controllerAs: 'vm',
+          'templateUrl': 'main/searchTop.html'
+        },
+        '@': {
+          'templateUrl': 'main/jobDetails.html',
+          'controllerAs': 'vm',
+          controller: 'appJobDetails',
+          bindToController: true
+        }
+      }
+    });
 
     $urlRouterProvider.otherwise('app/main');
 
