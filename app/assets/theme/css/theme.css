@@ -1470,7 +1470,7 @@ a:focus {
   width: 235px;
   height: 110px;
   left: -233px;
-  bottom: -2px;
+  bottom: -3px;
 }
 .main-header .form-search-home:after {
   content: "";
@@ -1479,7 +1479,7 @@ a:focus {
   width: 235px;
   height: 110px;
   right: -233px;
-  bottom: -2px;
+  bottom: -3px;
 }
 .main-header .form-search-list {
   margin-top: 53px;
