@@ -58,7 +58,7 @@
       ctrl.pagination.start = start;
       ctrl.pagination.end = end;
 
-      return _.slice(data.data, start, end);
+      return _.slice(data.data, (start -1), end);
     }
 
     function onFilter(jobGroup, groupName) {
