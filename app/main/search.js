@@ -18,10 +18,15 @@
     }
     
     function search() {
-      var place = ctrl.place;
-      SearchSrv.setSearchData(ctrl.title, place).then(function () {
+      var place = ctrl.place,
+          address = ctrl.fullAddress;
+      if (address) {
+         address = address.toLowerCase().replace(', united states', '').replace(', usa', '');
+      }
+
+      SearchSrv.setSearchData(ctrl.title, place, address).then(function () {
         $rootScope.$broadcast('jobsearchUpdated');
-        $state.go('app.jobList');
+        $state.go('app.jobList', {title: ctrl.title, location: address});
       });
     }
   }

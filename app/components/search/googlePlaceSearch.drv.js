@@ -25,6 +25,7 @@
         google.maps.event.addListener(autocomplete, 'place_changed', function() {
           scope.$apply(function() {
             scope.place = autocomplete.getPlace();
+            scope.ngModel = element.val();
           });
         });
       }

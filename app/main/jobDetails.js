@@ -5,8 +5,8 @@
     .module('JobStalker.main')
     .controller('appJobDetails', JobDetailsCtrl);
 
-  JobDetailsCtrl.$inject = ['$scope','$state', '$stateParams', 'SearchSrv', '_'];
-  function JobDetailsCtrl($scope, $state, $stateParams , SearchSrv, _) {
+  JobDetailsCtrl.$inject = ['$scope','$state', '$stateParams', 'JobDetailsSrv', '_'];
+  function JobDetailsCtrl($scope, $state, $stateParams , JobDetailsSrv, _) {
 
     var ctrl = this;
 
@@ -19,7 +19,7 @@
         return $state.go('app.main');
       }
 
-      SearchSrv.getJobDetails(id).then(function (data) {
+      JobDetailsSrv.getJobDetails(id).then(function (data) {
          ctrl.data = data;
       });
     }

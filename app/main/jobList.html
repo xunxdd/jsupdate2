@@ -23,11 +23,25 @@
 
                         <!-- item list -->
                         <div class="box-list">
-                            <div class="item" ng-repeat="item in vm.searchData">
+                            <div class="item" ng-repeat="item in vm.jobs">
                                 <div class="row">
+                                    <div class="col-md-1 hidden-sm hidden-xs">
+                                        <div class="img-item">
+                                            <img ng-src="./assets/theme/images/company-logo/{{item.imgSrc}}" alt="">
+                                        </div>
+                                    </div>
                                     <div class="col-md-11">
-                                        <h3 class="no-margin-top"><a ui-sref="app.jobdetails({id: item.id})" class="">{{item.title}}
-                                            <i class="fa fa-link color-white-mute font-1x"></i></a></h3>
+
+                                        <h3 class="no-margin-top clearfix">
+                                            <a ng-if="item.url" href="{{item.url}}" target="_blank">
+                                                {{item.title}}
+                                                <i class="fa fa-link color-white-mute font-1x"></i></a>
+                                            </a>
+                                            <a ng-if="!item.url" ui-sref="app.jobdetails({id: item.id})">
+                                                {{item.title}}
+                                                <i class="fa fa-link color-white-mute font-1x"></i>
+                                            </a>
+                                        </h3>
                                         <h5><span class="color-black">{{item.company}}</span> -
                                             <span class="color-white-mute">{{item.location}}</span></h5>
                                         <p class="text-truncate" ng-if="item.desc">{{item.desc}}</p>
@@ -43,7 +57,7 @@
                                 <ul uib-pagination
                                     total-items="vm.pagination.total"
                                     ng-model="vm.pagination.current"
-                                    max-size ="10"
+                                    max-size="10"
                                     force-ellipses="true"
                                     rotate="true"></ul>
                             </div>
@@ -62,23 +76,15 @@
                             </div>
                             <div class="col-xs-6">
                                 <p class="text-right">
-                                    <strong>Relevance</strong> - <a class="link-black"><strong>Date</strong></a>
+                                    <strong>Relevance</strong>
                                 </p>
                             </div>
                         </div>
 
                         <div class="result-filter">
-
-                            <job-list-filter groups="vm.companyGroups" group-name="Companies"                                               on-filter="vm.onFilter" clear-filter="vm.clearFilter"
-                                             on-filter="vm.onFilter()" clear-filter="vm.clearFilter()"
-                            ></job-list-filter>
-
-                            <job-list-filter groups="vm.locationGroups" group-name="Locations"
-                                             on-filter="vm.onFilter" clear-filter="vm.clearFilter"
-                            ></job-list-filter>
-
-                            <job-list-filter groups="vm.milesGroups" group-name="Miles"></job-list-filter>
-
+                            <div ng-repeat="group in vm.groups">
+                                <job-list-filter groups="group.group" group-name="{{group.name}}"></job-list-filter>
+                            </div>
                         </div>
                     </div>
 

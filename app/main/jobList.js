@@ -5,8 +5,8 @@
     .module('JobStalker.main')
     .controller('appJobList', JobListCtrl);
 
-  JobListCtrl.$inject = ['$scope', 'SearchSrv', '_'];
-  function JobListCtrl($scope, SearchSrv, _) {
+  JobListCtrl.$inject = ['$scope', '$stateParams', 'SearchSrv', '_'];
+  function JobListCtrl($scope, $stateParams, SearchSrv, _) {
 
     var ctrl = this;
 
@@ -34,6 +34,7 @@
       };
 
       ctrl.searchData = getSearchData();
+    //  getIndeedData();
     }
 
     function getSearchData(jobsData) {
@@ -44,13 +45,18 @@
       if (!data) {
         return [];
       }
+      var jobs = _.map(data.jobs, function (job) {
+          job.imgSrc = job.src === 'indeed'? 'indeed.png': 'cortech.png';
+          return job;
+      });
+
       var currentPage = ctrl.pagination.current,
         size = ctrl.pagination.size;
+
+      ctrl.jobs = jobs;
       ctrl.pagination.total = data.total;
 
-      ctrl.companyGroups = data.companyGroups;
-      ctrl.locationGroups = data.locationGroups;
-      ctrl.milesGroups = data.milesGroups;
+      ctrl.groups = data.groups;
 
       start = ((currentPage - 1) * size) + 1;
       end = Math.min(data.total, currentPage * size);

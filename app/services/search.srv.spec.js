@@ -18,5 +18,8 @@ describe('search srv', function () {
       expect(service.searchData.companyGroups.length).toBeGreaterThan(0);
     });
 
+    it('should jobs from all source correctly', function () {
+
+    });
   });
 });

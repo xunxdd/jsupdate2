@@ -35,7 +35,11 @@
       })
       .state('app.jobList', {
 
-        'url': '/joblist',
+        'url': '/joblist?{title}&{location}',
+        'params': {
+          title: '',
+          location: ''
+        },
         'views': {
           'header@': {
             controller: 'appTopSearch',
