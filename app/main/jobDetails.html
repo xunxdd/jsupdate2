@@ -23,11 +23,12 @@
                     <!-- box item details -->
                     <div class="box-item-details">
                         <div class="row">
-                            <div class="col-md-8">
-                                <h3>{{vm.data.companyName}}</h3>
-                            </div>
-                            <div class="col-md-4">
-                                <p class="text-right"></p>
+
+                            <div class="col-md-11 margin-top-20">
+                                <h3 ng-if="!vm.img">{{vm.companyName}}</h3>
+                                <div class="img-item" ng-if="vm.img">
+                                    <img ng-src="./assets/theme/images/company-logo/{{vm.img}}">
+                                </div>
                             </div>
                         </div>
 

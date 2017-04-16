@@ -13,6 +13,7 @@
     ctrl.getSearchData = getSearchData;
     ctrl.onFilter = onFilter;
     ctrl.clearFilter = clearFilter;
+    ctrl.updatePage = updatePage;
 
     init();
 
@@ -34,42 +35,44 @@
       };
 
       ctrl.searchData = getSearchData();
-    //  getIndeedData();
+    }
+
+    function updatePage() {
+
+      var start,
+        end,
+        currentPage = _.get(ctrl.pagination, 'current', 0),
+        size = ctrl.pagination.size;
+
+      start = ((currentPage - 1) * size) + 1;
+      end = Math.min(ctrl.allJobs.length, currentPage * size);
+
+      ctrl.pagination.start = start;
+      ctrl.pagination.end = end;
+
+      ctrl.jobs = _.slice(ctrl.allJobs, (start - 1), end);
     }
 
     function getSearchData(jobsData) {
-      var data = jobsData || SearchSrv.getSearchData(),
-        start,
-        end;
+      var data = jobsData || SearchSrv.getSearchData();
 
       if (!data) {
         return [];
       }
       var jobs = _.map(data.jobs, function (job) {
-          job.imgSrc = job.src === 'indeed'? 'indeed.png': 'cortech.png';
-          return job;
+        job.imgSrc = job.src === 'indeed' ? 'indeed.png' : 'cortech.png';
+        return job;
       });
 
-      var currentPage = ctrl.pagination.current,
-        size = ctrl.pagination.size;
-
-      ctrl.jobs = jobs;
+      ctrl.allJobs = jobs;
       ctrl.pagination.total = data.total;
 
       ctrl.groups = data.groups;
 
-      start = ((currentPage - 1) * size) + 1;
-      end = Math.min(data.total, currentPage * size);
-
-      ctrl.pagination.start = start;
-      ctrl.pagination.end = end;
-
-      return _.slice(data.data, (start -1), end);
+      updatePage();
     }
 
     function onFilter(jobGroup, groupName) {
-      console.log(jobGroup, groupName);
-      // ctrl.searchData = getSearchData(jobGroup.);
     }
 
     function clearFilter() {

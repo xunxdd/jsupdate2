@@ -26,7 +26,8 @@
 
     function setSearchData(title, place, address) {
       var lat, lng,
-        promises =[];
+        promises =[],
+        indeedResults;
 
       resetData();
 
@@ -40,8 +41,11 @@
       promises.push(corTechResults);
 
       if (title && address) {
-        var indeedResults = getIndeedData(title, address);
-        promises.push(indeedResults);
+
+        for (var i= 0; i< 10;i++) {
+          indeedResults = getIndeedData(title, address, i);
+          promises.push(indeedResults);
+        }
       }
 
       return $q.all(promises).then(function (response) {
@@ -87,8 +91,8 @@
         }
     }
 
-    function getIndeedData(title, address) {
-      var url = apiHost + 'indeed?title=' + title + '&location=' + address;
+    function getIndeedData(title, address, start) {
+      var url = apiHost + 'indeed?title=' + title + '&location=' + address + '&start=' + start;
       return getDataFromHttpHost(encodeURI(url)).then(function (response) {
         var data = angular.toJson(response.data);
         var results = _.get(response, 'data.results') || _.get(data, 'results');

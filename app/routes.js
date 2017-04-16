@@ -56,7 +56,7 @@
         }
       })
       .state('app.jobdetails', {
-      'url': '/jobdetails/:id',
+      'url': '/jobdetails/:id/:cname',
       'views': {
         'header@': {
           controller: 'appTopSearch',

@@ -14,11 +14,14 @@
 
     function init() {
       var id = $stateParams.id;
+      var companyName = $stateParams.cname;
 
       if (!id) {
         return $state.go('app.main');
       }
 
+      ctrl.companyName = companyName;
+      ctrl.img = companyName.toLowerCase().indexOf('cortech') >=0? 'cortechllc.png' :'';
       JobDetailsSrv.getJobDetails(id).then(function (data) {
          ctrl.data = data;
       });

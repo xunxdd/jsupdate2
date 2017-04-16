@@ -37,7 +37,7 @@
                                                 {{item.title}}
                                                 <i class="fa fa-link color-white-mute font-1x"></i></a>
                                             </a>
-                                            <a ng-if="!item.url" ui-sref="app.jobdetails({id: item.id})">
+                                            <a ng-if="!item.url" ui-sref="app.jobdetails({id: item.id, cname: item.company})">
                                                 {{item.title}}
                                                 <i class="fa fa-link color-white-mute font-1x"></i>
                                             </a>
@@ -56,8 +56,10 @@
                             <div class="col-xs-12">
                                 <ul uib-pagination
                                     total-items="vm.pagination.total"
+                                    items-per-page ="vm.pagination.size"
                                     ng-model="vm.pagination.current"
                                     max-size="10"
+                                    ng-change="vm.updatePage()"
                                     force-ellipses="true"
                                     rotate="true"></ul>
                             </div>
