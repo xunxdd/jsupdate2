@@ -19,7 +19,7 @@
     
     function search() {
       var place = ctrl.place;
-      SearchSrv.setSearchData(ctrl.title, place).then(function () {
+      SearchSrv.setSearchData(ctrl.title, place, ctrl.fullAddress).then(function () {
         $rootScope.$broadcast('jobsearchUpdated');
         $state.go('app.jobList');
       });

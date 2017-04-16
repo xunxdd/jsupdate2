@@ -10,11 +10,14 @@
 
     var srv = this;
     var apiHost = ApiEndPoint.apiUrl;
+    var indeedApi = ApiEndPoint.indeedApi;
+
     var searchDataKey = 'js_searchdata';
     var testData = {};
     srv.getSearchData = getSearchData;
     srv.setSearchData = setSearchData;
     srv.getJobDetails = getJobDetails;
+    srv.getIndeedResults = getIndeedResults;
 
     /**implementation**/
     srv.debug = false;
@@ -23,76 +26,25 @@
       return localStorageService.get(searchDataKey) || srv.searchData;
     }
 
-    function setSearchData(title, place) {
+    function setSearchData(title, place, fullAddress) {
 
-      var testData = [{
-        "id": 146453,
-        "company": "CorTech LLC",
-        "title": "Wi - Fi Test Engineer",
-        "location": "Atlanta",
-        "state": "GA",
-        "miles": 1.74,
-        "url": "<a href=\"#\" class=\"two\" onclick=\"EditJobOrder(146453, '2754BCE3-C7CB-4BFE-B935-E1967061B7A9');\">Wi - Fi Test Engineer</a>"
-      }, {
-        "id": 147030,
-        "company": "CorTech LLC",
-        "title": "Software Systems Engineer",
-        "location": "Alpharetta, GA",
-        "state": "GA",
-        "miles": 20.92,
-        "url": "<a href=\"#\" class=\"two\" onclick=\"EditJobOrder(147030, '2754BCE3-C7CB-4BFE-B935-E1967061B7A9');\">Software Systems Engineer</a>"
-      }, {
-        "id": 149419,
-        "company": "CorTech LLC",
-        "title": "US - Principal Software E",
-        "location": "Atlanta, Georgia",
-        "state": "GA",
-        "miles": 3.43,
-        "url": "<a href=\"#\" class=\"two\" onclick=\"EditJobOrder(149419, '2754BCE3-C7CB-4BFE-B935-E1967061B7A9');\">US - Principal Software E</a>"
-      }, {
-        "id": 149421,
-        "company": "CorTech LLC",
-        "title": "Software Systems Engineer",
-        "location": "Alpharetta, Georgia",
-        "state": "GA",
-        "miles": 20.92,
-        "url": "<a href=\"#\" class=\"two\" onclick=\"EditJobOrder(149421, '2754BCE3-C7CB-4BFE-B935-E1967061B7A9');\">Software Systems Engineer</a>"
-      }, {
-        "id": 149423,
-        "company": "CorTech LLC",
-        "title": "US - Principal Software E",
-        "location": "Atlanta, Georgia",
-        "state": "GA",
-        "miles": 3.43,
-        "url": "<a href=\"#\" class=\"two\" onclick=\"EditJobOrder(149423, '2754BCE3-C7CB-4BFE-B935-E1967061B7A9');\">US - Principal Software E</a>"
-      }, {
-        "id": 149622,
-        "company": "CorTech LLC",
-        "title": "Information Security Anal",
-        "location": "Alpharetta, Georgia",
-        "state": "GA",
-        "miles": 20.92,
-        "url": "<a href=\"#\" class=\"two\" onclick=\"EditJobOrder(149622, '2754BCE3-C7CB-4BFE-B935-E1967061B7A9');\">Information Security Anal</a>"
-      }];
       var lat, lng;
+      //var address = fullAddress.toLowerCase().replace(', united states', '').replace(', usa', '');
+
       if (_.get(place, 'geometry.location', null)) {
         lat = place.geometry.location.lat();
         lng = place.geometry.location.lng();
       }
 
-      console.log(lat, 'lat', lng, 'lng');
-      if (srv.debug) {
-        return $q.when(testData).then(function (data) {
+      return getIndeedResults().then(function () {
 
-          setSearchDataInStorage(data, title, location, lat, lng);
-        });
-      }
+      });
 
-      return getJobSearchDataFromApi(title, lat, lng).then(function (response) {
+      /*return getJobSearchDataFromApi(title, lat, lng).then(function (response) {
         return setSearchDataInStorage(response.data, title, location, lat, lng);
       }, function (error) {
         return setSearchDataInStorage([], title, location);
-      });
+      });*/
     }
 
     function setSearchDataInStorage(data, title, location) {
@@ -179,6 +131,14 @@
         });
       }
       return groups;
+    }
+
+    function getIndeedResults(title, location) {
+     //var query = "&q=" + title + "," + location;
+     //var url = indeedApi + query;
+     return getDataFromHttpHost('http://api.indeed.com/ads/apisearch?publisher=8142814049767213&format=json&q=java,%20atlanta%20ga&sort=&radius=25&st=&jt=&start=&limit=25&fromage=&filter=&latlong=1&co=us&chnl=&userip=1.2.3.4&useragent=Mozilla/%2F4.0%28Firefox%29&v=2').then(function (response) {
+        console.log(response);
+     });
     }
 
     function getGroupByArray(data, groupBy) {
