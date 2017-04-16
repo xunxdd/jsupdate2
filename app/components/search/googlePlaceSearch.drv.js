@@ -16,7 +16,7 @@
       template: '<input class="form-control {{cls}}" type="text" placeholder="city, state or zipcode">',
       link: function(scope, element, attrs, model) {
         var options = {
-          types: ['(cities)'],
+          types: ['(regions)'],
           componentRestrictions: {country: 'us'}
         };
 
