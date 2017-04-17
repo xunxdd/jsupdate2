@@ -26,7 +26,7 @@
 
     function setSearchData(title, place, address) {
       var lat, lng,
-        promises =[],
+        promises = [],
         indeedResults;
 
       resetData();
@@ -41,11 +41,8 @@
       promises.push(corTechResults);
 
       if (title && address) {
-
-        for (var i= 0; i< 10;i++) {
-          indeedResults = getIndeedData(title, address, i);
-          promises.push(indeedResults);
-        }
+        indeedResults = getIndeedData(title, address, 0);
+        promises.push(indeedResults);
       }
 
       return $q.all(promises).then(function (response) {
@@ -65,10 +62,10 @@
       var groups = [];
 
       jobsCombined = _.sortBy(jobsCombined, 'src');
-      groups.push (getGroups(searchData, 'src', 'Job Sources'));
-      groups.push (getGroups(searchData, 'company', 'Companies'));
-      groups.push (getGroups(searchData, 'location', 'Locations'));
-      groups.push ({
+      groups.push(getGroups(searchData, 'src', 'Job Sources'));
+      groups.push(getGroups(searchData, 'company', 'Companies'));
+      groups.push(getGroups(searchData, 'location', 'Locations'));
+      groups.push({
         name: 'Distance',
         group: SearchResultHandler.getMilesGroup(searchData)
       });
@@ -84,29 +81,56 @@
     }
 
     function getGroups(searchData, groupBy, groupName) {
-        var group = SearchResultHandler.getGroupByArray(searchData, groupBy);
-        return {
-          name: groupName,
-          group: group
-        }
+      var group = SearchResultHandler.getGroupByArray(searchData, groupBy);
+      return {
+        name: groupName,
+        group: group
+      }
     }
 
     function getIndeedData(title, address, start) {
       var url = apiHost + 'indeed?title=' + title + '&location=' + address + '&start=' + start;
+
       return getDataFromHttpHost(encodeURI(url)).then(function (response) {
-        var data = angular.toJson(response.data);
-        var results = _.get(response, 'data.results') || _.get(data, 'results');
-        var formatData = SearchResultHandler.formatIndeedData(results);
-        addToSearchData(formatData, 'indeed');
-        return data;
-      },onSearchJobFailed);
+        processIndeedData(response);
+        if (start === 0) {
+          var data = angular.toJson(response.data);
+          var total = _.get(response, 'data.totalResults', 0) || _.get(data, 'totalResults', 0);
+          if (total > 25) {
+            return getRemainIndeedData(title, address, total);
+          } else {
+            return $q.when({});
+          }
+        } else {
+          return $q.when({});
+        }
+      }, onSearchJobFailed);
     }
 
+    function processIndeedData(response) {
+      var data = angular.toJson(response.data);
+      var results = _.get(response, 'data.results') || _.get(data, 'results');
+      var formatData = SearchResultHandler.formatIndeedData(results);
+      addToSearchData(formatData, 'indeed');
+    }
+
+    function getRemainIndeedData(title, address, total) {
+      var totalPage = Math.ceil(total / 25);
+      var max = Math.min(250, total);
+      var promises = [];
+      if (totalPage > 1) {
+        for (var i = 1; (i*25) < max; i++) {
+          promises.push(getIndeedData(title, address, i*25));
+        }
+      }
+
+      return $q.all(promises);
+    }
 
     function getCorTechData(title, lat, lng) {
       var url = apiHost + 'search?title=' + (title || '') + '&lat=' + (lat || '') + '&lng=' + (lng || '');
       return getDataFromHttpHost(url).then(function (response) {
-        addToSearchData(response.data, 'corTech');
+        addToSearchData(response.data, 'Jobstalker');
         return response.data;
       }, onSearchJobFailed);
     }

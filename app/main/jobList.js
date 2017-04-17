@@ -60,7 +60,7 @@
         return [];
       }
       var jobs = _.map(data.jobs, function (job) {
-        job.imgSrc = job.src === 'indeed' ? 'indeed.png' : 'cortech.png';
+        job.imgSrc = job.src === 'indeed' ? 'indeed.png' : 'jobstalker.png';
         return job;
       });
 
