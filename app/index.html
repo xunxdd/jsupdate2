@@ -55,13 +55,13 @@
 
         <div class="container">
             <nav class="mobile-nav hidden-md hidden-lg">
-                <a href="#" class="btn-nav-toogle first">
+                <a ng-click="vm.showNav=true" class="btn-nav-toogle first">
                     <span class="bars"></span>
                     Menu
                 </a>
-                <div class="mobile-nav-block">
+                <div class="mobile-nav-block" ng-if="vm.showNav" ng-class="vm.showNav?'open-mobile-nav': ''">
                     <h4>Navigation</h4>
-                    <a href="#" class="btn-nav-toogle">
+                    <a ng-click="vm.showNav=false" class="btn-nav-toogle">
                         <span class="barsclose"></span>
                         Close
                     </a>
