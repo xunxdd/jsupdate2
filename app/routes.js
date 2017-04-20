@@ -72,19 +72,30 @@
             }
           }
         })
-        .state('app.jobdetails', {
-          'url': '/jobdetails/:id/:cname',
+        .state('app.login', {
+          'url': '/login',
           'views': {
             'header@': {
-              controller: 'appTopSearch',
-              bindToController: true,
-              controllerAs: 'vm',
-              'templateUrl': 'main/searchTop.html'
+              'templateUrl': 'main/noSearch.html'
             },
             '@': {
               'templateUrl': 'main/login.html',
               'controllerAs': 'vm',
               controller: 'appLogin',
+              bindToController: true
+            }
+          }
+        })
+        .state('app.forgotPassword', {
+          'url': '/forgotPassword',
+          'views': {
+            'header@': {
+              'templateUrl': 'main/noSearch.html'
+            },
+            '@': {
+              'templateUrl': 'main/forgotPassword.html',
+              'controllerAs': 'vm',
+              controller: 'appForgotPwd',
               bindToController: true
             }
           }

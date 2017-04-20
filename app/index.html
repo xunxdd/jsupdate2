@@ -46,11 +46,9 @@
                         <li class=""><a><strong>Post a Job</strong></a></li>-->
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="link-btn"><a><span class="btn btn-theme btn-pill btn-xs btn-line">Login</span></a>
+                        <li class="link-btn"><a ui-sref="app.login"><span class="btn btn-theme btn-pill btn-xs btn-line">Login</span></a>
                         </li>
-                        <li class="link-btn"><a><span
-                                class="btn btn-theme  btn-pill btn-xs btn-line">Register</span></a></li>
-                    </ul>
+                      </ul>
                 </div>
             </div>
         </nav>
@@ -72,8 +70,7 @@
                         <li><a ui-sref="app.main"><strong>Find a Job</strong></a></li>
                         <!--<li class=""><a href="resume_list.html"><strong>Find Resumes</strong></a></li>
                         <li class=""><a href="job_post_1.html"><strong>Post a Job</strong></a></li>-->
-                        <li><a><strong>Login</strong></a></li>
-                        <li><a><strong>Register</strong></a></li>
+                        <li><a ui-sref="app.login"><strong>Login</strong></a></li>
                     </ul>
                 </div>
             </nav>
@@ -127,6 +124,7 @@
 <script src="services/search.srv.js"></script>
 <script src="services/searchResultHandler.srv.js"></script>
 <script src="services/jobDetails.srv.js"></script>
+<script src="services/auth.srv.js"></script>
 
 <script src="components/search/search.module.js"></script>
 <script src="components/search/googlePlaceSearch.drv.js"></script>
@@ -140,6 +138,7 @@
 <script src="main/search.js"></script>
 <script src="main/searchTop.js"></script>
 <script src="main/login.js"></script>
+<script src="main/forgotPassword.js"></script>
 
 <!-- Theme JS -->
 <script src="assets/theme/js/theme.js"></script>
