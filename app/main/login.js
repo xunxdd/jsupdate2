@@ -14,7 +14,7 @@
     ctrl.invaidUser = false;
     function login() {
       AuthSrv.login(ctrl.uid, ctrl.pwd).then(function (response) {
-        $window.location.href = "http://jobstalker.net/landing.aspx?key=" + response.data;
+        $window.location.href = encodeURI("http://jobstalker.net/landing.aspx?key=" + response.data + '&uid=' + ctrl.uid);
       }, function (error) {
         ctrl.invaidUser = true;
       });
