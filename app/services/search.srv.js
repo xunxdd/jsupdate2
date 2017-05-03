@@ -16,6 +16,7 @@
 
     srv.getSearchData = getSearchData;
     srv.setSearchData = setSearchData;
+    srv.geoCodeThenSetSearchData = geoCodeThenSetSearchData;
 
     /**implementation**/
     srv.debug = false;
@@ -24,17 +25,37 @@
       return localStorageService.get(searchDataKey) || searchDataCombined;
     }
 
+    function geoCode(address) {
+      var url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + encodeURI(address) + '&key=AIzaSyAA9BOmbxkL9UhXJArD_DIe57vrlcmGIp4';
+      return getDataFromHttpHost(url).then(function (response) {
+        console.log(response.data.results);
+        var results = _.get(response.data, 'results');
+        if (angular.isArray(results) && results.length >= 0) {
+          return results[0]
+        }
+        return {};
+      });
+    }
+
+    function geoCodeThenSetSearchData(title, address) {
+      return geoCode(address).then(function (place) {
+        return setSearchData(title, place, address);
+      });
+    }
+
     function setSearchData(title, place, address) {
-      var lat, lng,
-        promises = [],
+      var lat, lng;
+      var promises = [],
         indeedResults;
 
-      resetData();
-
       if (_.get(place, 'geometry.location', null)) {
-        lat = place.geometry.location.lat();
-        lng = place.geometry.location.lng();
+
+        lat = place.geometry.location.lat;
+        lat = angular.isFunction(lat)? lat() : lat;
+        lng = place.geometry.location.lng;
+        lng = angular.isFunction(lng)? lng() : lng;
       }
+      resetData();
 
       var corTechResults = getCorTechData(title, lat, lng);
 
@@ -51,10 +72,8 @@
     }
 
     function resetData() {
-
       searchData = [];
       localStorageService.set(searchDataKey, null);
-
     }
 
     function processSearchData(title, location) {
@@ -119,8 +138,8 @@
       var max = Math.min(250, total);
       var promises = [];
       if (totalPage > 1) {
-        for (var i = 1; (i*25) < max; i++) {
-          promises.push(getIndeedData(title, address, i*25));
+        for (var i = 1; (i * 25) < max; i++) {
+          promises.push(getIndeedData(title, address, i * 25));
         }
       }
 

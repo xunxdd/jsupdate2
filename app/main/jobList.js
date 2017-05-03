@@ -11,8 +11,6 @@
     var ctrl = this;
 
     ctrl.getSearchData = getSearchData;
-    ctrl.onFilter = onFilter;
-    ctrl.clearFilter = clearFilter;
     ctrl.updatePage = updatePage;
 
     init();
@@ -22,7 +20,15 @@
         initData();
       });
 
-      initData();
+      if ($stateParams.title && $stateParams.geocode && $stateParams.location) {
+        console.log('should try goe');
+        SearchSrv.geoCodeThenSetSearchData($stateParams.title, $stateParams.location).then(function () {
+          console.log('geo jow');
+          initData();
+        });
+      } else {
+        initData();
+      }
     }
 
     function initData() {
@@ -72,12 +78,6 @@
       updatePage();
     }
 
-    function onFilter(jobGroup, groupName) {
-    }
-
-    function clearFilter() {
-
-    }
 
   }
 

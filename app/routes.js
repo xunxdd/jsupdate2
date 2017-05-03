@@ -55,6 +55,25 @@
             }
           }
         })
+        .state('app.jobs', {
+          'url': '/jobs?{title}&{location}',
+          'params': {
+            title: '',
+            location: '',
+            geocode: true
+          },
+          'views': {
+            'header@': {
+              template: ''
+            },
+            '@': {
+              templateUrl: 'main/jobList.html',
+              controllerAs: 'vm',
+              controller: 'appJobList',
+              bindToController: true
+            }
+          }
+        })
         .state('app.jobdetails', {
           'url': '/jobdetails/:id/:cname',
           'views': {
